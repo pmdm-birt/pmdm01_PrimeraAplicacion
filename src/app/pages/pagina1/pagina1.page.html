@@ -1,4 +1,28 @@
-<app-page-header titulo="PAGINA 1"></app-page-header>
+<app-page-header [titulo]="email || 'IMC'"></app-page-header>
 
 <ion-content>
+    <form #formulario="ngForm">
+        <ion-list>
+            <ion-list-header>
+                <ion-label>Calcular el Indice de Masa Corporal (IMC)</ion-label>
+                <ion-button [disabled]="formulario.invalid" (click)="onClick()">Calcular IMC</ion-button>
+            </ion-list-header>
+            <ion-item>
+                <ion-label>email</ion-label>
+                <ion-input name="email" type="text" placeholder="Introduce tu correo electrónico" [(ngModel)]="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Peso (kg)</ion-label>
+                <ion-input name="peso" type="number" placeholder="Introduce tu peso en kilos" [(ngModel)]="pesoT" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Altura (m)</ion-label>
+                <ion-input name="altura" type="number" placeholder="Introduce tu altura en metrost" [(ngModel)]="altura" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>IMC: {{imc}}</ion-label>
+                <ion-badge *ngIf="imc>25" color="danger">Cuida tu peso</ion-badge>
+            </ion-item>
+        </ion-list>
+    </form>
 </ion-content>

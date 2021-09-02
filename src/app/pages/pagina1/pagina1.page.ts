@@ -7,7 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Pagina1Page implements OnInit {
 
+  pesoT: number;
+  altura: number;
+  imc: number;
+  email:string;
+
   constructor() { }
+
+  onClick() {
+    console.log("Botón pulsado");
+    this.imc = this.pesoT / Math.pow(this.altura, 2);
+    this.imc = Math.round(this.imc * 100) / 100;
+    console.log(this.imc);
+  }
 
   ngOnInit() {
   }
