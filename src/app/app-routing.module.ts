@@ -10,6 +10,7 @@ function unaFuncion() {
   return import('./pages/home/home.module').then( callback )
 }
 
+// Se definen los paths de las diferentes páginas de la aplicación
 const routes: Routes = [
   {
     path: 'home',
